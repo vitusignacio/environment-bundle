@@ -1,0 +1,13 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+    config.vm.box = "geerlingguy/centos7"
+    config.vm.network :forwarded_port, guest: 80, host: 8080
+    config.vm.provision :shell, :path => "install.sh"
+    config.vm.provision :shell, :path => "setup-home-vagrant.sh", privileged: false
+    # config.vm.provision :shell, :path => "setup-apache2.sh"
+    config.vm.synced_folder "www", "/var/www/html/vagrant", :mount_options => ["dmode=777", "fmode=666"]
+end
