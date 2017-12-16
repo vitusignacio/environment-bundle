@@ -1,3 +1,4 @@
+@echo off
 echo "Getting apache2 up..."
 cd apache2
 vagrant up --provision
