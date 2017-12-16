@@ -15,7 +15,6 @@ function Execute($folder)
         Write-Host "[ERROR] The path $folder not found." -ForegroundColor Red;
     }
     vagrant up --provision
-    vagrant plugin install vagrant-vbguest
     vagrant halt
 }
 $basePath = Get-ScriptDirectory

@@ -1,6 +1,6 @@
 param (
     [string]$service = "",
-    [string]$isProvisionable = "np"
+    [string]$provision = "np"
 )
 function Get-ScriptDirectory
 {
@@ -15,15 +15,13 @@ try
     if (Test-Path -Path $folder)
     {
         cd $folder;
-        if ($isProvisionable -eq "p")
+        if ($provision -eq "p")
         {
             Write-Host "System will perform provision..." -ForegroundColor Red;
-            vagrant plugin install vagrant-vbguest
             vagrant up --provision;
         }
-        elseif ($isProvisionable -eq "np") {
+        elseif ($provision -eq "np") {
             Write-Host "System will NOT perform provision..." -ForegroundColor Green;
-            vagrant plugin install vagrant-vbguest
             vagrant up --no-provision;
         }
         else {

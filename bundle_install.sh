@@ -3,7 +3,6 @@ execute()
 {
     cd "$PWD/$1"
     vagrant up --provision
-    vagrant plugin install vagrant-vbguest
     vagrant halt
     cd $PWD
 }
