@@ -1,20 +1,20 @@
 @echo off
-echo "Getting apache2 up..."
+echo "Uninstalling apache2..."
 cd apache2
 vagrant destroy --force
 echo "APACHE2: uninstalled"
 cd ..
-echo "Getting mongodb up..."
+echo "Uninstalling mongodb..."
 cd mongodb
 vagrant destroy --force
 echo "MONGODB: uninstalled"
 cd ..
-echo "Getting MySQL up..."
+echo "Uninstalling MySQL..."
 cd mysql
 vagrant destroy --force
 echo "MYSQL: uninstalled"
 cd ..
-echo "Getting Redis up..."
+echo "Uninstalling Redis..."
 cd redis
 vagrant destroy --force
 echo "REDIS: uninstalled"
