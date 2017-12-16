@@ -14,8 +14,7 @@ function Execute($folder)
     {
         Write-Host "[ERROR] The path $folder not found." -ForegroundColor Red;
     }
-    vagrant up --provision
-    vagrant halt
+    vagrant destroy --force
 }
 $basePath = Get-ScriptDirectory
 try
@@ -24,9 +23,9 @@ try
     $services = @("apache2", "mysql", "mongodb", "redis");
     foreach ($service in $services)
     {
-        Write-Host "Installing $service" -ForegroundColor Green;
+        Write-Host "Uninstalling $service" -ForegroundColor Green;
         Execute($service);
-        Write-Host "$service -> DONE";
+        Write-Host $service + " -> DONE";
         cd $basePath;
     }
 }
